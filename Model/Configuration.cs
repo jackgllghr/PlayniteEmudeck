@@ -3,6 +3,6 @@ using System.Collections.Generic;
 namespace EmudeckPlaynite.Model
 {
     public class Configuration{
-        public List<EmudeckEmulatorConfig> emulators;
+        public List<EmudeckEmulatorConfig> emulators = new List<EmudeckEmulatorConfig>();
     }
 }

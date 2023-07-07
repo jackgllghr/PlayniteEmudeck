@@ -1,11 +1,10 @@
-﻿using Playnite.SDK.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 using EmudeckPlaynite.Model;
 using System.Linq;
-using System.IO;
-using YamlDotNet.Serialization.NamingConventions;
+using Playnite.SDK;
+using Playnite.SDK.Models;
 
 namespace EmudeckPlaynite
 {
@@ -25,34 +24,49 @@ namespace EmudeckPlaynite
 
         public void RemoveAllEmulators()
         {
-            // Remove only emulators configured by this plugin
-            var emulatorMap = new Dictionary<string, Guid>();
-            Playnite.SDK.API.Instance.Database.Emulators.ForEach(s => {
-                emulatorMap.Add(s.Name, s.Id);
-            });
-            foreach (var emu in configuration.emulators)
+            try
             {
-                Playnite.SDK.API.Instance.Database.Emulators.Remove(emulatorMap[emu.Name]);
+                // Remove only emulators configured by this plugin
+                var emulatorMap = new Dictionary<string, Guid>();
+                API.Instance.Database.Emulators.ForEach(s =>
+                {
+                    emulatorMap.Add(s.Name, s.Id);
+                });
+                foreach (var item in configuration.emulators)
+                {
+                    if (emulatorMap.ContainsKey(item.Name) && emulatorMap[item.Name] != null)
+                        API.Instance.Database.Emulators.Remove(emulatorMap[item.Name]);
+                }
+
+                // Remove only scanners configured by this plugin
+                var scannerMap = new Dictionary<string, Guid>();
+                API.Instance.Database.GameScanners.ForEach(s =>
+                {
+                    scannerMap.Add(s.Name, s.Id);
+                });
+                var scanners = API.Instance.Database.GameScanners.Select(s => s.Id);
+                foreach (var item in configuration.emulators)
+                {
+                     if (scannerMap.ContainsKey(item.Name) && scannerMap[item.Name] != null)
+                        API.Instance.Database.GameScanners.Remove(scannerMap[item.Name]);
+                }
+            }
+            catch (Exception e)
+            {
+                API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Unable to remove previous Emudeck configurations" + e.Message, type: NotificationType.Error);
             }
 
-            // Remove only scanners configured by this plugin
-            var scannerMap = new Dictionary<string, Guid>();
-            Playnite.SDK.API.Instance.Database.GameScanners.ForEach(s => {
-                scannerMap.Add(s.Name, s.Id);
-            });
-            var scanners = Playnite.SDK.API.Instance.Database.GameScanners.Select(s => s.Id);
-            foreach (var emu in configuration.emulators)
-            {
-                Playnite.SDK.API.Instance.Database.GameScanners.Remove(scannerMap[emu.Name]);
-            }
         }
 
-        private Dictionary<string, EmulatorDefinitionProfile> GetDefaultProfiles (){
+        private Dictionary<string, EmulatorDefinitionProfile> GetDefaultProfiles()
+        {
             var map = new Dictionary<string, EmulatorDefinitionProfile>();
-            Playnite.SDK.API.Instance.Emulation.Emulators.ForEach(s => {
+            API.Instance.Emulation.Emulators.ForEach(s =>
+            {
                 var defaultProfile = s.Profiles.First();
-                if(defaultProfile != null){
-                    map.Add(s.Name,s.Profiles.First());
+                if (defaultProfile != null)
+                {
+                    map.Add(s.Name, s.Profiles.First());
                 }
             });
             return map;
@@ -60,18 +74,18 @@ namespace EmudeckPlaynite
 
         public void AddEmulators()
         {
-            
+
             // Get Platforms
             var platforms = new Dictionary<string, Guid>();
 
-            var savedPlatforms = Playnite.SDK.API.Instance.Database.Platforms.ToList();
+            var savedPlatforms = API.Instance.Database.Platforms.ToList();
 
             savedPlatforms.ForEach(s =>
             {
                 platforms.Add(s.SpecificationId, new Guid(s.Id.ToString()));
             });
-            
-            
+
+
 
             var emulatorDefaultProfiles = GetDefaultProfiles();
             foreach (var config in configuration.emulators)
@@ -82,7 +96,7 @@ namespace EmudeckPlaynite
                 if (platformId == null)
                     continue;
 
-                
+
                 var defaultProfile = emulatorDefaultProfiles[config.PlayniteEmulatorName];
                 // Insert emulator 
                 var emulator = new Emulator
@@ -103,11 +117,11 @@ namespace EmudeckPlaynite
                             },
                 };
 
-                Playnite.SDK.API.Instance.Database.Emulators.Add(emulator);
+                API.Instance.Database.Emulators.Add(emulator);
 
                 Guid recordGuid = emulator.Id;
 
-                var scanners = Playnite.SDK.API.Instance.Database.GameScanners;
+                var scanners = API.Instance.Database.GameScanners;
                 scanners.Add(new GameScannerConfig
                 {
                     EmulatorId = recordGuid,
@@ -125,11 +139,12 @@ namespace EmudeckPlaynite
                     MergeRelatedFiles = true,
                 });
             }
-         
-            // Playnite.SDK.API.Instance.Dialogs.ShowMessage("All Emulators for Emudeck added into the library.");
+
+            API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck configuration successfully loaded", NotificationType.Info);
+
         }
 
-       
+
 
     }
 }

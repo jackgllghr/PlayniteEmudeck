@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -25,19 +26,24 @@ namespace EmudeckPlaynite
         public override Guid Id { get; } = Guid.Parse("82cf60ec-8091-488d-9c85-63836ebee151");
 
         private Configuration GetConfiguration() {
-            var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
+            var configPath =  Path.Combine(GetExtensionInstallPath(), "Resources", "emulators.yml");
+
+            try{
+                var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
+                var file = File.ReadAllText(configPath);
+                return deserializer.Deserialize<Configuration>(file);            
+
+            } catch(Exception e){
+                PlayniteApi.Dialogs.ShowErrorMessage("Unable to read configuration file: " + configPath + "\n" + e.Message, "Emudeck");
+                return new Configuration();
+            }
             
-            return deserializer.Deserialize<Configuration>(File.ReadAllText( GetExtensionInstallPath() + "\\Config\\emulators.yml"));            
         }
 
         private string GetExtensionInstallPath(){
-            var extensionName = "Emudeck";
-            if(this.PlayniteApi.ApplicationInfo.IsPortable ){
-                return this.PlayniteApi.Paths.ApplicationPath + "\\Extensions\\"+extensionName;
-            } 
-            return $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Playnite\\Extensions\\{extensionName}";
+            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }
 
         public EmudeckPlaynite(IPlayniteAPI api) : base(api)
