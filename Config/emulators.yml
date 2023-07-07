@@ -24,12 +24,12 @@ emulators:
       playniteEmulatorName: Cemu
       executable: tools\launchers\cemu.bat
       platformSpecificiationId: nintendo_wiiu
-    - name: ds
+    - name: nds
       arguments: 
       playniteEmulatorName: melonDS
       executable: tools\launchers\melonDS.bat
       platformSpecificiationId: nintendo_ds
-    - name: 3ds
+    - name: n3ds
       arguments: 
       playniteEmulatorName: Citra
       executable: tools\launchers\citra.bat
