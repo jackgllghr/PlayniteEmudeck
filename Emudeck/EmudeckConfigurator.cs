@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System;
 using EmudeckPlaynite.Model;
 using System.Linq;
+using System.IO;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace EmudeckPlaynite
 {
@@ -11,13 +13,14 @@ namespace EmudeckPlaynite
     {
 
         private string EmudeckInstallDir;
+        private Configuration configuration;
         public EmudeckConfigurator(
-            // string PlayniteInstallDir,
-            string EmudeckInstallDir
+            string EmudeckInstallDir,
+            Configuration configuration
         )
         {
-            // this.PlayniteInstallDir = PlayniteInstallDir;
             this.EmudeckInstallDir = EmudeckInstallDir;
+            this.configuration = configuration;
         }
 
         public void RemoveAllEmulators()
@@ -60,9 +63,8 @@ namespace EmudeckPlaynite
             
             
 
-            var emudeckConfigs = GetEmudeckConfigs();
             var emulatorDefaultProfiles = GetDefaultProfiles();
-            foreach (var config in emudeckConfigs)
+            foreach (var config in configuration.emulators)
             {
                 // Get platform
                 Guid platformId;
@@ -117,17 +119,7 @@ namespace EmudeckPlaynite
             // Playnite.SDK.API.Instance.Dialogs.ShowMessage("All Emulators for Emudeck added into the library.");
         }
 
-        private IEnumerable<EmudeckEmulatorConfig> GetEmudeckConfigs() =>
-            // TODO Deserialise from YAML
-            new List<EmudeckEmulatorConfig>{
-                new EmudeckEmulatorConfig{
-                    Name = "psx",
-                    Arguments = "-fullscreen",
-                    PlayniteEmulatorName = "DuckStation",
-                    Executable = "tools\\launchers\\duckstation.bat",
-                    PlatformSpecificiationId = "sony_playstation"
-                }
-            };
+       
 
     }
 }

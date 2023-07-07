@@ -1,0 +1,8 @@
+emulators: 
+    - name: psx
+      arguments: -fullscreen
+      playniteEmulatorName: DuckStation
+      executable: tools\launchers\duckstation.bat
+      platformSpecificiationId: sony_playstation
+
+  

@@ -47,8 +47,20 @@ namespace EmudeckPlaynite
             {
                 Settings = new EmudeckPlayniteSettings();
             }
+
+            
         }
 
+         public RelayCommand<object> BrowseCommand
+        {
+            get => new RelayCommand<object>((a) =>
+            {
+                var filePath = Playnite.SDK.API.Instance.Dialogs.SelectFolder();
+                settings.EmudeckInstallDir = filePath;
+            });
+        }
+
+       
         public void BeginEdit()
         {
             // Code executed when settings view is opened and user starts editing values.

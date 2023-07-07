@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="600">
-    <StackPanel>
+    <StackPanel Margin="20">
         <TextBlock Text="Emudeck Install Directory:"/>
-        <StackPanel Orientation="Horizontal" MinWidth="100%">
-            <TextBox MinWidth="100%" Text="{Binding Settings.EmudeckInstallDir}"/>
-            <!-- <Button>Browse</Button> -->
+        <StackPanel Orientation="Horizontal" >
+            <TextBox Text="{Binding Settings.EmudeckInstallDir}" Width="400" Margin="0 0 10 0"/>
+            <Button Command="{Binding BrowseCommand}" Content="{DynamicResource LOCExtra_Metadata_Loader_SettingBrowseLabel}" />
         </StackPanel>
     </StackPanel>
 </UserControl>
