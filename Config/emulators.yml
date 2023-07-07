@@ -4,5 +4,51 @@ emulators:
       playniteEmulatorName: DuckStation
       executable: tools\launchers\duckstation.bat
       platformSpecificiationId: sony_playstation
+    - name: ps2
+      arguments: 
+      playniteEmulatorName: PCSX2
+      executable: tools\launchers\pcsx2.bat
+      platformSpecificiationId: sony_playstation2
+    - name: ps3
+      arguments: 
+      playniteEmulatorName: RPCS3
+      executable: tools\launchers\rpcs3.bat
+      platformSpecificiationId: sony_playstation3
+    - name: psp
+      arguments: 
+      playniteEmulatorName: PPSSPP
+      executable: tools\launchers\PPSSPP.bat
+      platformSpecificiationId: sony_psp
+    - name: wiiu
+      arguments: 
+      playniteEmulatorName: Cemu
+      executable: tools\launchers\cemu.bat
+      platformSpecificiationId: nintendo_wiiu
+    - name: ds
+      arguments: 
+      playniteEmulatorName: melonDS
+      executable: tools\launchers\melonDS.bat
+      platformSpecificiationId: nintendo_ds
+    - name: 3ds
+      arguments: 
+      playniteEmulatorName: Citra
+      executable: tools\launchers\citra.bat
+      platformSpecificiationId: nintendo_3ds
+    - name: wii
+      arguments: 
+      playniteEmulatorName: Dolphin
+      executable: tools\launchers\dolphin.bat
+      platformSpecificiationId: nintendo_wii
+    - name: gc
+      arguments: 
+      playniteEmulatorName: Dolphin
+      executable: tools\launchers\dolphin.bat
+      platformSpecificiationId: nintendo_gamecube
+    - name: switch
+      arguments: 
+      playniteEmulatorName: yuzu
+      executable: tools\launchers\yuzu.bat
+      platformSpecificiationId: nintendo_switch
+
 
   
