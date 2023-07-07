@@ -1,16 +1,11 @@
 ﻿using EmudeckPlaynite.Model;
 using Playnite.SDK;
 using Playnite.SDK.Events;
-using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -30,7 +25,7 @@ namespace EmudeckPlaynite
 
             try{
                 var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .WithNamingConvention(new CamelCaseNamingConvention())
                 .Build();
                 var file = File.ReadAllText(configPath);
                 return deserializer.Deserialize<Configuration>(file);            

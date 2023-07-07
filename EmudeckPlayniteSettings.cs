@@ -1,10 +1,6 @@
 ﻿using Playnite.SDK;
 using Playnite.SDK.Data;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmudeckPlaynite
 {
@@ -51,12 +47,19 @@ namespace EmudeckPlaynite
             
         }
 
-         public RelayCommand<object> BrowseCommand
+        public RelayCommand<object> BrowseCommand
         {
             get => new RelayCommand<object>((a) =>
             {
                 var filePath = Playnite.SDK.API.Instance.Dialogs.SelectFolder();
                 settings.EmudeckInstallDir = filePath;
+            });
+        }
+        public RelayCommand<object> ReloadCommand
+        {
+            get => new RelayCommand<object>((a) =>
+            {
+                settings.EmudeckInstallDir = $"{settings.EmudeckInstallDir}";
             });
         }
 

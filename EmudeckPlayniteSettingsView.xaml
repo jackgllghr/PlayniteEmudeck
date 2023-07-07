@@ -9,7 +9,10 @@
         <TextBlock Text="Emudeck Install Directory:"/>
         <StackPanel Orientation="Horizontal" >
             <TextBox Text="{Binding Settings.EmudeckInstallDir}" Width="400" Margin="0 0 10 0"/>
-            <Button Command="{Binding BrowseCommand}" Content="{DynamicResource LOCExtra_Metadata_Loader_SettingBrowseLabel}" />
+            <Button Command="{Binding BrowseCommand}" Content="{DynamicResource EmudeckPlaynite_Settings_BrowseLabel}" />
+        </StackPanel>
+        <StackPanel>
+            <Button Command="{Binding ReloadCommand}" Content="{DynamicResource EmudeckPlaynite_Settings_ReloadLabel}" />
         </StackPanel>
     </StackPanel>
 </UserControl>
