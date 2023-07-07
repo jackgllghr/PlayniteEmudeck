@@ -25,15 +25,25 @@ namespace EmudeckPlaynite
 
         public void RemoveAllEmulators()
         {
-            var emulators = Playnite.SDK.API.Instance.Database.Emulators.Select(s => s.Id);
-            foreach (var emu in emulators)
+            // Remove only emulators configured by this plugin
+            var emulatorMap = new Dictionary<string, Guid>();
+            Playnite.SDK.API.Instance.Database.Emulators.ForEach(s => {
+                emulatorMap.Add(s.Name, s.Id);
+            });
+            foreach (var emu in configuration.emulators)
             {
-                Playnite.SDK.API.Instance.Database.Emulators.Remove(emu);
+                Playnite.SDK.API.Instance.Database.Emulators.Remove(emulatorMap[emu.Name]);
             }
+
+            // Remove only scanners configured by this plugin
+            var scannerMap = new Dictionary<string, Guid>();
+            Playnite.SDK.API.Instance.Database.GameScanners.ForEach(s => {
+                scannerMap.Add(s.Name, s.Id);
+            });
             var scanners = Playnite.SDK.API.Instance.Database.GameScanners.Select(s => s.Id);
-            foreach (var emu in scanners)
+            foreach (var emu in configuration.emulators)
             {
-                Playnite.SDK.API.Instance.Database.GameScanners.Remove(emu);
+                Playnite.SDK.API.Instance.Database.GameScanners.Remove(scannerMap[emu.Name]);
             }
         }
 

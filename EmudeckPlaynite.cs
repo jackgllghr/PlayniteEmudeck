@@ -1,10 +1,11 @@
-using EmudeckPlaynite.Model;
+﻿using EmudeckPlaynite.Model;
 using Playnite.SDK;
 using Playnite.SDK.Events;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,16 +24,22 @@ namespace EmudeckPlaynite
 
         public override Guid Id { get; } = Guid.Parse("82cf60ec-8091-488d-9c85-63836ebee151");
 
-
         private Configuration GetConfiguration() {
             var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
-
-            var extensionPath = this.PlayniteApi.Paths.ApplicationPath + "\\EmudeckPlaynite";
-            return deserializer.Deserialize<Configuration>(File.ReadAllText( extensionPath+ "\\Config\\emulators.yml"));            
             
+            return deserializer.Deserialize<Configuration>(File.ReadAllText( GetExtensionInstallPath() + "\\Config\\emulators.yml"));            
         }
+
+        private string GetExtensionInstallPath(){
+            var extensionName = "Emudeck";
+            if(this.PlayniteApi.ApplicationInfo.IsPortable ){
+                return this.PlayniteApi.Paths.ApplicationPath + "\\Extensions\\"+extensionName;
+            } 
+            return $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\Playnite\\Extensions\\{extensionName}";
+        }
+
         public EmudeckPlaynite(IPlayniteAPI api) : base(api)
         {
             
@@ -82,8 +89,6 @@ namespace EmudeckPlaynite
         public override void OnApplicationStarted(OnApplicationStartedEventArgs args)
         {
             // Add code to be executed when Playnite is initialized.
-            configurator.RemoveAllEmulators();
-            configurator.AddEmulators();
         }
 
         public override void OnApplicationStopped(OnApplicationStoppedEventArgs args)
