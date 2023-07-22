@@ -74,77 +74,76 @@ namespace EmudeckPlaynite
 
         public void AddEmulators()
         {
+            try {
+                 // Get Platforms
+                var platforms = new Dictionary<string, Guid>();
 
-            // Get Platforms
-            var platforms = new Dictionary<string, Guid>();
+                var savedPlatforms = API.Instance.Database.Platforms.ToList();
 
-            var savedPlatforms = API.Instance.Database.Platforms.ToList();
-
-            savedPlatforms.ForEach(s =>
-            {
-                platforms.Add(s.SpecificationId, new Guid(s.Id.ToString()));
-            });
-
-
-
-            var emulatorDefaultProfiles = GetDefaultProfiles();
-            foreach (var config in configuration.emulators)
-            {
-                // Get platform
-                Guid platformId;
-                platforms.TryGetValue(config.PlatformSpecificiationId, out platformId);
-                if (platformId == null)
-                    continue;
-
-
-                var defaultProfile = emulatorDefaultProfiles[config.PlayniteEmulatorName];
-                // Insert emulator 
-                var emulator = new Emulator
+                savedPlatforms.ForEach(s =>
                 {
-                    Name = config.Name,
-                    BuiltinProfiles = new ObservableCollection<BuiltInEmulatorProfile>(),
-                    InstallDir = $"{this.EmudeckInstallDir}\\tools\\launchers",
-                    CustomProfiles = new ObservableCollection<CustomEmulatorProfile>{
-                                new CustomEmulatorProfile{
-                                    Platforms = new List<Guid>{platformId},
-                                    Arguments= "\"{ImagePath}\"" + $" {config.Arguments}",
-                                    Executable = $"{this.EmudeckInstallDir}\\{config.Executable}",
-                                    TrackingMode =  0,
-                                    ImageExtensions = defaultProfile.ImageExtensions,
-                                    Name = "Default",
-                                    WorkingDirectory = "{EmulatorDir}",
-                                }
-                            },
-                };
-
-                API.Instance.Database.Emulators.Add(emulator);
-
-                Guid recordGuid = emulator.Id;
-
-                var scanners = API.Instance.Database.GameScanners;
-                scanners.Add(new GameScannerConfig
-                {
-                    EmulatorId = recordGuid,
-                    Name = config.Name,
-                    Directory = $"{EmudeckInstallDir}\\roms\\{config.Name}",
-                    InGlobalUpdate = true,
-                    ExcludeOnlineFiles = false,
-                    UseSimplifiedOnlineFileScan = false,
-                    ImportWithRelativePaths = true,
-                    ScanSubfolders = true,
-                    ScanInsideArchives = true,
-                    OverridePlatformId = new Guid(),
-                    EmulatorProfileId = emulator.CustomProfiles[0].Id,
-                    PlayActionSettings = ScannerConfigPlayActionSettings.ScannerSettings,
-                    MergeRelatedFiles = true,
+                    platforms.Add(s.SpecificationId, new Guid(s.Id.ToString()));
                 });
+
+
+
+                var emulatorDefaultProfiles = GetDefaultProfiles();
+                foreach (var config in configuration.emulators)
+                {
+                    // Get platform
+                    Guid platformId;
+                    platforms.TryGetValue(config.PlatformSpecificiationId, out platformId);
+                    if (platformId == null)
+                        continue;
+
+
+                    var defaultProfile = emulatorDefaultProfiles[config.PlayniteEmulatorName];
+                    // Insert emulator 
+                    var emulator = new Emulator
+                    {
+                        Name = config.Name,
+                        BuiltinProfiles = new ObservableCollection<BuiltInEmulatorProfile>(),
+                        InstallDir = $"{this.EmudeckInstallDir}\\tools\\launchers",
+                        CustomProfiles = new ObservableCollection<CustomEmulatorProfile>{
+                                    new CustomEmulatorProfile{
+                                        Platforms = new List<Guid>{platformId},
+                                        Arguments= "\"{ImagePath}\"" + $" {config.Arguments}",
+                                        Executable = $"{this.EmudeckInstallDir}\\{config.Executable}",
+                                        TrackingMode =  0,
+                                        ImageExtensions = defaultProfile.ImageExtensions,
+                                        Name = "Default",
+                                        WorkingDirectory = "{EmulatorDir}",
+                                    }
+                                },
+                    };
+
+                    API.Instance.Database.Emulators.Add(emulator);
+
+                    Guid recordGuid = emulator.Id;
+
+                    var scanners = API.Instance.Database.GameScanners;
+                    scanners.Add(new GameScannerConfig
+                    {
+                        EmulatorId = recordGuid,
+                        Name = config.Name,
+                        Directory = $"{EmudeckInstallDir}\\{config.RomsDir}",
+                        InGlobalUpdate = true,
+                        ExcludeOnlineFiles = false,
+                        UseSimplifiedOnlineFileScan = false,
+                        ImportWithRelativePaths = true,
+                        ScanSubfolders = true,
+                        ScanInsideArchives = true,
+                        OverridePlatformId = platformId,
+                        EmulatorProfileId = emulator.CustomProfiles[0].Id,
+                        PlayActionSettings = ScannerConfigPlayActionSettings.ScannerSettings,
+                        MergeRelatedFiles = true,
+                    });
+                }
+
+                API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck configuration successfully loaded", NotificationType.Info);
+            } catch (Exception e){
+                API.Instance.Dialogs.ShowErrorMessage($"There was an error when attempting to configure your emulators: {e.Message}", "EmuDeck Error");
             }
-
-            API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck configuration successfully loaded", NotificationType.Info);
-
         }
-
-
-
     }
 }

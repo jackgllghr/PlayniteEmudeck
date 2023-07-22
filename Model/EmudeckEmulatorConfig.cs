@@ -7,5 +7,6 @@
         public string PlayniteEmulatorName { get; set; }
         public string Executable { get; set; }
         public string Arguments { get; set; }
+        public string RomsDir { get; set; }
     }
 }

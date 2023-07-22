@@ -1,53 +1,69 @@
 emulators: 
     - name: psx
+      romsDir: roms\psx
       arguments: -fullscreen
       playniteEmulatorName: DuckStation
       executable: tools\launchers\duckstation.bat
       platformSpecificiationId: sony_playstation
     - name: ps2
+      romsDir: roms\ps2
       arguments: 
       playniteEmulatorName: PCSX2
       executable: tools\launchers\pcsx2.bat
       platformSpecificiationId: sony_playstation2
     - name: ps3
-      arguments: 
+      romsDir: roms\ps3
+      arguments: --no-gui
       playniteEmulatorName: RPCS3
       executable: tools\launchers\rpcs3.bat
       platformSpecificiationId: sony_playstation3
     - name: psp
-      arguments: 
+      romsDir: roms\psp
+      arguments:  -f -g
       playniteEmulatorName: PPSSPP
       executable: tools\launchers\PPSSPP.bat
       platformSpecificiationId: sony_psp
     - name: wiiu
-      arguments: 
+      romsDir: roms\wiiu
+      arguments: -f -g
       playniteEmulatorName: Cemu
       executable: tools\launchers\cemu.bat
       platformSpecificiationId: nintendo_wiiu
     - name: nds
-      arguments: 
+      romsDir: roms\nds
+      arguments: -f
       playniteEmulatorName: melonDS
       executable: tools\launchers\melonDS.bat
       platformSpecificiationId: nintendo_ds
     - name: n3ds
+      romsDir: roms\n3ds
       arguments: 
       playniteEmulatorName: Citra
       executable: tools\launchers\citra.bat
       platformSpecificiationId: nintendo_3ds
     - name: wii
-      arguments: 
+      romsDir: roms\wii
+      arguments: -b -e
       playniteEmulatorName: Dolphin
       executable: tools\launchers\dolphin.bat
       platformSpecificiationId: nintendo_wii
     - name: gc
-      arguments: 
+      romsDir: roms\gc
+      arguments: -b -e
       playniteEmulatorName: Dolphin
       executable: tools\launchers\dolphin.bat
       platformSpecificiationId: nintendo_gamecube
-    - name: switch
-      arguments: 
+    - name: switch yuzu
+      romsDir: roms\switch
+      arguments: -f -g
       playniteEmulatorName: yuzu
       executable: tools\launchers\yuzu.bat
+      platformSpecificiationId: nintendo_switch
+    - name: switch ryujinx
+      romsDir: roms\switch
+      arguments: -f
+      playniteEmulatorName: Ryujinx
+      executable: tools\launchers\ryujinx.bat
       platformSpecificiationId: nintendo_switch
 
 
