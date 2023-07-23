@@ -51,7 +51,7 @@ try {
 
             var fileExtsTemp = i.parserInputs.glob.substring(13);
             var fileExtsTemp2 = fileExtsTemp.substring(0, fileExtsTemp.length -1);
-            let exts = fileExtsTemp2.split("|");
+            let exts = fileExtsTemp2.split("|").map(ext => ext.substring(1));
             
 
             let platformName = i.steamCategory.substring(0, i.steamCategory.length -1).substring(2);
