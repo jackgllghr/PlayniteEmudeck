@@ -1,0 +1,1 @@
+..\..\AppData\Local\Playnite\Toolbox.exe pack bin\Debug\net4.6.2\publish bin\Release
