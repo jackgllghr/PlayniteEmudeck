@@ -2,7 +2,7 @@ AddonId: "EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151"
 Packages:
   - Version: 0.2
     RequiredApiVersion: 6.9.0
-    ReleaseDate: 2023-23-07
+    ReleaseDate: 2023-07-23
     PackageUrl: https://github.com/jackgllghr/PlayniteEmudeck/releases/download/0.2/EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151_0_2.pext
     Changelog:
       - Added retroarch platforms
