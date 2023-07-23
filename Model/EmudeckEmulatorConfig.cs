@@ -1,4 +1,6 @@
-﻿namespace EmudeckPlaynite.Model
+﻿using System.Collections.Generic;
+
+namespace EmudeckPlaynite.Model
 {
     public class EmudeckEmulatorConfig
     {
@@ -8,5 +10,6 @@
         public string Executable { get; set; }
         public string Arguments { get; set; }
         public string RomsDir { get; set; }
+        public List<string> FileExtensions { get; set; }
     }
 }

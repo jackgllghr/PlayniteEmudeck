@@ -23,36 +23,24 @@ emulators:
       playniteEmulatorName: PPSSPP
       executable: tools\launchers\PPSSPP.bat
       platformSpecificiationId: sony_psp
-    - name: wiiu
-      romsDir: roms\wiiu
-      arguments: -f -g
-      playniteEmulatorName: Cemu
-      executable: tools\launchers\cemu.bat
-      platformSpecificiationId: nintendo_wiiu
-    - name: nds
-      romsDir: roms\nds
-      arguments: -f
-      playniteEmulatorName: melonDS
-      executable: tools\launchers\melonDS.bat
-      platformSpecificiationId: nintendo_ds
-    - name: n3ds
-      romsDir: roms\n3ds
-      arguments: 
-      playniteEmulatorName: Citra
-      executable: tools\launchers\citra.bat
-      platformSpecificiationId: nintendo_3ds
-    - name: wii
-      romsDir: roms\wii
-      arguments: -b -e
-      playniteEmulatorName: Dolphin
-      executable: tools\launchers\dolphin.bat
-      platformSpecificiationId: nintendo_wii
     - name: gc
       romsDir: roms\gc
       arguments: -b -e
       playniteEmulatorName: Dolphin
       executable: tools\launchers\dolphin.bat
       platformSpecificiationId: nintendo_gamecube
+    - name: wii
+      romsDir: roms\wii
+      arguments: -b -e
+      playniteEmulatorName: Dolphin
+      executable: tools\launchers\dolphin.bat
+      platformSpecificiationId: nintendo_wii
+    - name: wiiu
+      romsDir: roms\wiiu
+      arguments: -f -g
+      playniteEmulatorName: Cemu
+      executable: tools\launchers\cemu.bat
+      platformSpecificiationId: nintendo_wiiu
     - name: switch yuzu
       romsDir: roms\switch
       arguments: -f -g
@@ -65,6 +53,901 @@ emulators:
       playniteEmulatorName: Ryujinx
       executable: tools\launchers\ryujinx.bat
       platformSpecificiationId: nintendo_switch
-
-
-  
+    - name: nds
+      romsDir: roms\nds
+      arguments: -f
+      playniteEmulatorName: melonDS
+      executable: tools\launchers\melonDS.bat
+      platformSpecificiationId: nintendo_ds
+    - name: n3ds
+      romsDir: roms\n3ds
+      arguments: 
+      playniteEmulatorName: Citra
+      executable: tools\launchers\citra.bat
+      platformSpecificiationId: nintendo_3ds
+      # Retro arch configs, use script to create
+    - name: 3DO
+      romsDir: roms\3do
+      arguments: -L opera_libretro.dll
+      fileExtensions:
+        - .iso
+        - .ISO
+        - .bin
+        - .BIN
+        - .chd
+        - .CHD
+        - .cue
+        - .cue
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: 3do
+    - name: Amiga - Retroarch
+      romsDir: roms\amiga
+      arguments: -L puae_libretro.dll
+      fileExtensions:
+        - .adf
+        - .ADF
+        - .adz
+        - .ADZ
+        - .dms
+        - .DMS
+        - .fdi
+        - .FDI
+        - .ipf
+        - .IPF
+        - .hdf
+        - .HDF
+        - .hdz
+        - .HDZ
+        - .lha
+        - .LHA
+        - .slave
+        - .SLAVE
+        - .info
+        - .INFO
+        - .cue
+        - .CUE
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .nrg
+        - .NRG
+        - .mds
+        - .MDS
+        - .iso
+        - .ISO
+        - .uae
+        - .UAE
+        - .m3u
+        - .M3U
+        - .zip
+        - .ZIP
+        - .7z
+        - .7Z
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: commodore_amiga
+    - name: Amiga 600 - Retroarch
+      romsDir: roms\amiga600
+      arguments: -L puae_libretro.dll
+      fileExtensions:
+        - .adf
+        - .ADF
+        - .adz
+        - .ADZ
+        - .dms
+        - .DMS
+        - .fdi
+        - .FDI
+        - .ipf
+        - .IPF
+        - .hdf
+        - .HDF
+        - .hdz
+        - .HDZ
+        - .lha
+        - .LHA
+        - .slave
+        - .SLAVE
+        - .info
+        - .INFO
+        - .cue
+        - .CUE
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .nrg
+        - .NRG
+        - .mds
+        - .MDS
+        - .iso
+        - .ISO
+        - .uae
+        - .UAE
+        - .m3u
+        - .M3U
+        - .zip
+        - .ZIP
+        - .7z
+        - .7Z
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: atari_2600
+    - name: Amiga 1200 - Retroarch
+      romsDir: roms\amiga1200
+      arguments: -L puae_libretro.dll
+      fileExtensions:
+        - .adf
+        - .ADF
+        - .adz
+        - .ADZ
+        - .dms
+        - .DMS
+        - .fdi
+        - .FDI
+        - .ipf
+        - .IPF
+        - .hdf
+        - .HDF
+        - .hdz
+        - .HDZ
+        - .lha
+        - .LHA
+        - .slave
+        - .SLAVE
+        - .info
+        - .INFO
+        - .cue
+        - .CUE
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .nrg
+        - .NRG
+        - .mds
+        - .MDS
+        - .iso
+        - .ISO
+        - .uae
+        - .UAE
+        - .m3u
+        - .M3U
+        - .zip
+        - .ZIP
+        - .7z
+        - .7Z
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: atari_5200
+    - name: Amiga CD - Retroarch
+      romsDir: roms\amigacd32
+      arguments: -L puae_libretro.dll
+      fileExtensions:
+        - .adf
+        - .ADF
+        - .adz
+        - .ADZ
+        - .dms
+        - .DMS
+        - .fdi
+        - .FDI
+        - .ipf
+        - .IPF
+        - .hdf
+        - .HDF
+        - .hdz
+        - .HDZ
+        - .lha
+        - .LHA
+        - .slave
+        - .SLAVE
+        - .info
+        - .INFO
+        - .cue
+        - .CUE
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .nrg
+        - .NRG
+        - .mds
+        - .MDS
+        - .iso
+        - .ISO
+        - .uae
+        - .UAE
+        - .m3u
+        - .M3U
+        - .zip
+        - .ZIP
+        - .7z
+        - .7Z
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: commodore_amiga_cd32
+    - name: Atari 2600 - Retroarch - Stella
+      romsDir: roms\atari2600
+      arguments: -L stella_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .a26
+        - .A26
+        - .bin
+        - .BIN
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: atari_2600
+    - name: Atari Lynx - Retroarch - Beetle Handy
+      romsDir: roms\atarilynx
+      arguments: -L mednafen_lynx_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .lnx
+        - .LNX
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: atari_lynx
+    - name: Bandai WonderSwan/Color - Retroarch - Beetle Cygne
+      romsDir: roms\wonderswan
+      arguments: -L mednafen_wswan_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .pc2
+        - .PC2
+        - .ws
+        - .WS
+        - .wsc
+        - .WSC
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: bandai_wonderswan
+    - name: Commodore 64 - Retroarch
+      romsDir: roms\c64
+      arguments: -L vice_x64_libretro.dll
+      fileExtensions:
+        - .d64
+        - .D64
+        - .d71
+        - .D71
+        - .d80
+        - .D80
+        - .d81
+        - .D81
+        - .d82
+        - .D82
+        - .g64
+        - .G64
+        - .g41
+        - .G41
+        - .x64
+        - .X64
+        - .t64
+        - .T64
+        - .tap
+        - .TAP
+        - .prg
+        - .PRG
+        - .p00
+        - .P00
+        - .crt
+        - .CRT
+        - .bin
+        - .BIN
+        - .d6z
+        - .D6Z
+        - .d7z
+        - .D7Z
+        - .d8z
+        - .D8Z
+        - .g6z
+        - .G6Z
+        - .g4z
+        - .G4Z
+        - .x6z
+        - .X6Z
+        - .cmd
+        - .CMD
+        - .m3u
+        - .M3U
+        - .vsf
+        - .VSF
+        - .nib
+        - .NIB
+        - .nbz
+        - .NBZ
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: commodore_64
+    - name: DOS - Retroarch - DOSBox Pure
+      romsDir: roms\dos
+      arguments: -L dosbox_pure_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: pc_dos
+    - name: Nintendo 64 - Retroarch - Mupen64Plus Next
+      romsDir: roms\n64
+      arguments: -L mupen64plus_next_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .bin
+        - .BIN
+        - .n64
+        - .N64
+        - .ndd
+        - .NDD
+        - .u1
+        - .U1
+        - .v64
+        - .V64
+        - .z64
+        - .Z64
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_64
+    - name: Nintendo GameBoy - Retroarch - Gambatte
+      romsDir: roms\gb
+      arguments: -L gambatte_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .gb
+        - .GB
+        - .dmg
+        - .DMG
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_gameboy
+    - name: Nintendo GameBoy Color - Retroarch - Gambatte
+      romsDir: roms\gbc
+      arguments: -L gambatte_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .gb
+        - .GB
+        - .gbc
+        - .GBC
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_gameboycolor
+    - name: Nintendo GameBoy Advance - Retroarch - mGBA
+      romsDir: roms\gba
+      arguments: -L mgba_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .gba
+        - .GBA
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_gameboyadvance
+    - name: Nintendo NES - Retroarch - Mesen
+      romsDir: roms\nes
+      arguments: -L mesen_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .nes
+        - .NES
+        - .fds
+        - .FDS
+        - .unf
+        - .UNF
+        - .unif
+        - .UNIF
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_nes
+    - name: Nintendo DS - Retroarch - melonDS
+      romsDir: roms\nds
+      arguments: -L melonds_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .nds
+        - .NDS
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_ds
+    - name: Nintendo SNES - Retroarch - Snes9x
+      romsDir: roms\snes
+      arguments: -L snes9x_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .bs
+        - .BS
+        - .fig
+        - .FIG
+        - .sfc
+        - .SFC
+        - .smc
+        - .SMC
+        - .swc
+        - .SWC
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nintendo_super_nes
+    - name: Sega 32X - Retroarch - PicoDrive
+      romsDir: roms\sega32x
+      arguments: -L picodrive_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .32x
+        - .32X
+        - .bin
+        - .BIN
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_32x
+    - name: Sega CD/Mega CD - Retroarch - Genesis Plus GX
+      romsDir: roms\segacd
+      arguments: -L genesis_plus_gx_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .iso
+        - .ISO
+        - .cue
+        - .CUE
+        - .chd
+        - .CHD
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_cd
+    - name: Sega Dreamcast - Retroarch - Flycast
+      romsDir: roms\dreamcast
+      arguments: -L flycast_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .cdi
+        - .CDI
+        - .chd
+        - .CHD
+        - .cue
+        - .CUE
+        - .gdi
+        - .GDI
+        - .m3u
+        - .M3U
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_dreamcast
+    - name: Sega Game Gear - Retroarch - Genesis Plus GX
+      romsDir: roms\gamegear
+      arguments: -L genesis_plus_gx_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .gg
+        - .GG
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_gamegear
+    - name: Sega Master System - Retroarch - Genesis Plus GX
+      romsDir: roms\mastersystem
+      arguments: -L genesis_plus_gx_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .sms
+        - .SMS
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_mastersystem
+    - name: Sega Saturn - Retroarch - Yabause
+      romsDir: roms\saturn
+      arguments: -L yabause_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .cue
+        - .CUE
+        - .iso
+        - .ISO
+        - .zip
+        - ZIP
+        - .chd
+        - .m3u
+        - .M3U
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_saturn
+    - name: Sega Saturn - RA - Beetle
+      romsDir: roms\saturn
+      arguments: -L mednafen_saturn_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .cue
+        - .CUE
+        - .iso
+        - .ISO
+        - .zip
+        - ZIP
+        - .chd
+        - .m3u
+        - .M3U
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sega_saturn
+    - name: SNK Neo Geo Pocket/Color - Retroarch - Beetle NeoPop
+      romsDir: roms\ngpc
+      arguments: -L mednafen_ngp_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .ngc
+        - .NGC
+        - .ngp
+        - .NGP
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: snk_neogeopocket
+    - name: Sony PlayStation - Retroarch - Beetle PSX HW
+      romsDir: roms\psx
+      arguments: -L mednafen_psx_hw_libretro.dll
+      fileExtensions:
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .cue
+        - .CUE
+        - .m3u
+        - .M3U
+        - .pbp
+        - .PBP
+        - .toc
+        - .TOC
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sony_playstation
+    - name: Sony PlayStation - Retroarch - SwanStation
+      romsDir: roms\psx
+      arguments: -L swanstation_libretro.dll
+      fileExtensions:
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .cue
+        - .CUE
+        - .m3u
+        - .M3U
+        - .pbp
+        - .PBP
+        - .toc
+        - .TOC
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sony_playstation
+    - name: Sony PlayStation Portable - Retroarch - PPSSPP
+      romsDir: roms\psp
+      arguments: -L ppsspp_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .elf
+        - .ELF
+        - .cso
+        - .CSO
+        - .iso
+        - .ISO
+        - .pbp
+        - .PBP
+        - .prx
+        - .PRX
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sony_psp
+    - name: PC Engine/TurboGrafx 16 - RA - Beetle PCE
+      romsDir: roms\pcengine
+      arguments: -L mednafen_pce_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .bin
+        - .BIN
+        - .pce
+        - .PCE
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: pc_dos
+    - name: PCE/TurboGrafx 16 CD - RA - Beetle PCE
+      romsDir: roms\pcenginecd
+      arguments: -L mednafen_pce_libretro.dll
+      fileExtensions:
+        - .7z
+        - .7Z
+        - .ccd
+        - .CCD
+        - .chd
+        - .CHD
+        - .cue
+        - .CUE
+        - .iso
+        - .ISO
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: pc_dos
+    - name: ZX Spectrum - Retroarch - Fuse
+      romsDir: roms\zxspectrum
+      arguments: -L fuse_libretro.dll
+      fileExtensions:
+        - .7z
+        - .tzx
+        - .tap
+        - .z80
+        - .rzx
+        - .scl
+        - .trd
+        - .TZX
+        - .TAP
+        - .Z80
+        - .RZX
+        - .SCL
+        - .TRD
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: sinclair_zxspectrum
+    - name: Amstrad CPC - RA - Caprice32
+      romsDir: roms\amstradcpc
+      arguments: -L cap32_libretro.dll
+      fileExtensions:
+        - ""
+        - .7Z
+        - .cdt
+        - .CDT
+        - .dsk
+        - .DSK
+        - .sna
+        - .SNA
+        - .tap
+        - .TAP
+        - .voc
+        - .VOC
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: amstrad_cpc
+    - name: Commodore Vic-20 - RetroArch
+      romsDir: roms\vic20
+      arguments: -L vice_xvic_libretro.dll
+      fileExtensions:
+        - .d64
+        - .d6z
+        - .d71
+        - .d7z
+        - .d80
+        - .d81
+        - .d82
+        - .d8z
+        - .g64
+        - .g6z
+        - .g41
+        - .g4z
+        - .x64
+        - .x6z
+        - .nib
+        - .nbz
+        - .d2m
+        - .d4m
+        - .t64
+        - .tap
+        - .tcrt
+        - .prg
+        - .p00
+        - .crt
+        - .bin
+        - .cmd
+        - .m3u
+        - .vfl
+        - .vsf
+        - .zip
+        - .7z
+        - .gz
+        - ".20"
+        - ".40"
+        - ".60"
+        - .a0
+        - .b0
+        - .rom
+        - .D64
+        - .D6Z
+        - .D71
+        - .D7Z
+        - .D80
+        - .D81
+        - .D82
+        - .D8Z
+        - .G64
+        - .G6Z
+        - .G41
+        - .G4Z
+        - .X64
+        - .X6Z
+        - .NIB
+        - .NBZ
+        - .D2M
+        - .D4M
+        - .T64
+        - .TAP
+        - .TCRT
+        - .PRG
+        - .P00
+        - .CRT
+        - .BIN
+        - .CMD
+        - .M3U
+        - .VFL
+        - .VSF
+        - .ZIP
+        - .7Z
+        - .GZ
+        - ".20"
+        - ".40"
+        - ".60"
+        - .A0
+        - .B0
+        - .ROM
+        - ""
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: commodore_vci20
+    - name: NEC - PC-98 - RetroArch
+      romsDir: roms\vic20
+      arguments: -L vice_xvic_libretro.dll
+      fileExtensions:
+        - .d98
+        - .zip
+        - .98d
+        - .fdi
+        - .fdd
+        - .2hd
+        - .tfd
+        - .d88
+        - .88d
+        - .hdm
+        - .xdf
+        - .dup
+        - .cmd
+        - .hdi
+        - .thd
+        - .nhd
+        - .hdd
+        - .hdn
+        - .D98
+        - .ZIP
+        - .98D
+        - .FDI
+        - .FDD
+        - .2HD
+        - .TFD
+        - .D88
+        - .88D
+        - .HDM
+        - .XDF
+        - .DUP
+        - .CMD
+        - .HDI
+        - .THD
+        - .NHD
+        - .HDD
+        - .HDN
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: nec_pcfx
+    - name: Commodore 16 - Retroarch
+      romsDir: roms\c16
+      arguments: -L vice_x64_libretro.dll
+      fileExtensions:
+        - .d64
+        - .D64
+        - .d71
+        - .D71
+        - .d80
+        - .D80
+        - .d81
+        - .D81
+        - .d82
+        - .D82
+        - .g64
+        - .G64
+        - .g41
+        - .G41
+        - .x64
+        - .X64
+        - .t64
+        - .T64
+        - .tap
+        - .TAP
+        - .prg
+        - .PRG
+        - .p00
+        - .P00
+        - .crt
+        - .CRT
+        - .bin
+        - .BIN
+        - .d6z
+        - .D6Z
+        - .d7z
+        - .D7Z
+        - .d8z
+        - .D8Z
+        - .g6z
+        - .G6Z
+        - .g4z
+        - .G4Z
+        - .x6z
+        - .X6Z
+        - .cmd
+        - .CMD
+        - .m3u
+        - .M3U
+        - .vsf
+        - .VSF
+        - .nib
+        - .NIB
+        - .nbz
+        - .NBZ
+        - .zip
+        - .ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.bat
+      platformSpecificiationId: commodore_64

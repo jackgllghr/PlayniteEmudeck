@@ -110,7 +110,7 @@ namespace EmudeckPlaynite
                                         Arguments= "\"{ImagePath}\"" + $" {config.Arguments}",
                                         Executable = $"{this.EmudeckInstallDir}\\{config.Executable}",
                                         TrackingMode =  0,
-                                        ImageExtensions = defaultProfile.ImageExtensions,
+                                        ImageExtensions = config.FileExtensions != null ? config.FileExtensions : defaultProfile.ImageExtensions,
                                         Name = "Default",
                                         WorkingDirectory = "{EmulatorDir}",
                                     }

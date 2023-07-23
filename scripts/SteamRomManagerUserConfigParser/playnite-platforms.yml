@@ -1,0 +1,140 @@
+platforms:
+  - slug: 3do
+    name: 3DO Interactive Multiplayer
+  - slug: amstrad_cpc
+    name: Amstrad CPC
+  - slug: apple_2
+    name: Apple II
+  - slug: atari_2600
+    name: Atari 2600
+  - slug: atari_5200
+    name: Atari 5200
+  - slug: atari_7800
+    name: Atari 7800
+  - slug: atari_8bit
+    name: Atari 8-bit
+  - slug: atari_jaguar
+    name: Atari Jaguar
+  - slug: atari_lynx
+    name: Atari Lynx
+  - slug: atari_st
+    name: Atari ST/STE
+  - slug: bandai_wonderswan
+    name: Bandai WonderSwan
+  - slug: bandai_wonderswan_color
+    name: Bandai WonderSwan Color
+  - slug: coleco_vision
+    name: Coleco ColecoVision
+  - slug: commodore_64
+    name: Commodore 64
+  - slug: commodore_amiga
+    name: Commodore Amiga
+  - slug: commodore_amiga_cd32
+    name: Commodore Amiga CD32
+  - slug: commodore_pet
+    name: Commodore PET
+  - slug: commodore_plus4
+    name: Commodore Plus/4
+  - slug: commodore_vci20
+    name: Commodore VIC20
+  - slug: macintosh
+    name: Macintosh
+  - slug: mattel_intellivision
+    name: Mattel Intellivision
+  - slug: nec_pcfx
+    name: NEC PC-FX
+  - slug: nec_supergrafx
+    name: NEC SuperGrafx
+  - slug: nec_turbografx_16
+    name: NEC TurboGrafx 16
+  - slug: nec_turbografx_cd
+    name: NEC TurboGrafx-CD
+  - slug: nintendo_3ds
+    name: Nintendo 3DS
+  - slug: nintendo_64
+    name: Nintendo 64
+  - slug: nintendo_ds
+    name: Nintendo DS
+  - slug: nintendo_famicom_disk
+    name: Nintendo Family Computer Disk System
+  - slug: nintendo_gameboy
+    name: Nintendo Game Boy
+  - slug: nintendo_gameboyadvance
+    name: Nintendo Game Boy Advance
+  - slug: nintendo_gameboycolor
+    name: Nintendo Game Boy Color
+  - slug: nintendo_gamecube
+    name: Nintendo GameCube
+  - slug: nintendo_nes
+    name: Nintendo Entertainment System
+    aliases:
+    - NES
+  - slug: nintendo_super_nes
+    name: Nintendo SNES
+    aliases: 
+    - Nintendo SNES
+    - nintendo_super_nes
+  - slug: nintendo_switch
+    name: Nintendo Switch
+  - slug: nintendo_virtualboy
+    name: Nintendo Virtual Boy
+  - slug: nintendo_wii
+    name: Nintendo Wii
+  - slug: nintendo_wiiu
+    name: Nintendo Wii U
+  - slug: pc_dos
+    name: PC (DOS)
+  - slug: pc_linux
+    name: PC (Linux)
+  - slug: pc_windows
+    name: PC (Windows)
+  - slug: sega_32x
+    name: Sega 32X
+  - slug: sega_cd
+    name: Sega CD
+  - slug: sega_dreamcast
+    name: Sega Dreamcast
+  - slug: sega_gamegear
+    name: Sega Game Gear
+  - slug: sega_genesis
+    name: Sega Genesis
+  - slug: sega_mastersystem
+    name: Sega Master System
+  - slug: sega_saturn
+    name: Sega Saturn
+  - slug: sinclair_zx81
+    name: Sinclair ZX81
+  - slug: sinclair_zxspectrum
+    name: Sinclair ZX Spectrum
+  - slug: snk_neogeo_cd
+    name: SNK Neo Geo CD
+  - slug: snk_neogeopocket
+    name: SNK Neo Geo Pocket
+  - slug: snk_neogeopocket_color
+    name: SNK Neo Geo Pocket Color
+  - slug: sony_playstation
+    name: Sony PlayStation
+    aliases: 
+    - PlayStation - SwanStation
+  - slug: sony_playstation2
+    name: Sony PlayStation 2
+  - slug: sony_playstation3
+    name: Sony PlayStation 3
+  - slug: sony_playstation4
+    name: Sony PlayStation 4
+  - slug: sony_playstation5
+    name: Sony PlayStation 5
+  - slug: sony_psp
+    name: Sony PlayStation Portable
+  - slug: sony_vita
+    name: Sony PlayStation Vita
+  - slug: vectrex
+    name: GCE Vectrex
+  - slug: xbox
+    name: Microsoft Xbox
+  - slug: xbox_one
+    name: Microsoft Xbox One
+  - slug: xbox_series
+    name: Microsoft Xbox Series
+  - slug: xbox360
+    name: Microsoft Xbox 360
