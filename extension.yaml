@@ -1,14 +1,11 @@
-﻿Id: EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151
+﻿AddonId: EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151
 Name: Emudeck
 Author: Jack Gallagher
-Version: 0.2
 Module: EmudeckPlaynite.dll
-Type: GenericPlugin
 Icon: icon.png
+ShortDescription: A plugin to automatically configure Playnite to use Emudeck
+SourceUrl: https://github.com/jackgllghr/PlayniteEmudeck
+InstallerManifestUrl: https://raw.githubusercontent.com/jackgllghr/PlayniteEmudeck/main/installer.yaml
 Links:
-    - Name: GitHub
-      Url: https://github.com/jackgllghr/PlayniteEmudeck
-    - Name: Issues Tracker
-      Url: https://github.com/jackgllghr/PlayniteEmudeck/issues
-    - Name: Ko-fi (Tips and Donations)
-      Url: https://ko-fi.com/jackofsometrades
+    Issues Tracker: https://github.com/jackgllghr/PlayniteEmudeck/issues
+    Ko-fi : https://ko-fi.com/jackofsometrades
