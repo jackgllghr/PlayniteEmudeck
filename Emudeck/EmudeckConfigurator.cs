@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 using EmudeckPlaynite.Model;
@@ -107,7 +107,7 @@ namespace EmudeckPlaynite
                         CustomProfiles = new ObservableCollection<CustomEmulatorProfile>{
                                     new CustomEmulatorProfile{
                                         Platforms = new List<Guid>{platformId},
-                                        Arguments= "\"{ImagePath}\"" + $" {config.Arguments}",
+                                        Arguments= $"{config.Arguments}" + " \"{ImagePath}\"",
                                         Executable = $"{this.EmudeckInstallDir}\\{config.Executable}",
                                         TrackingMode =  0,
                                         ImageExtensions = config.FileExtensions != null ? config.FileExtensions : defaultProfile.ImageExtensions,
@@ -124,22 +124,22 @@ namespace EmudeckPlaynite
                     var scanners = API.Instance.Database.GameScanners;
                     scanners.Add(new GameScannerConfig
                     {
-                        EmulatorId = recordGuid,
-                        Name = config.Name,
-                        Directory = $"{EmudeckInstallDir}\\{config.RomsDir}",
-                        InGlobalUpdate = true,
-                        ExcludeOnlineFiles = false,
-                        UseSimplifiedOnlineFileScan = false,
-                        ImportWithRelativePaths = true,
-                        ScanSubfolders = true,
-                        ScanInsideArchives = true,
-                        OverridePlatformId = platformId,
-                        EmulatorProfileId = emulator.CustomProfiles[0].Id,
-                        PlayActionSettings = ScannerConfigPlayActionSettings.ScannerSettings,
-                        MergeRelatedFiles = true,
-                    });
-                }
-
+                            EmulatorId = recordGuid,
+                            Name = config.Name,
+                            Directory = $"{EmudeckInstallDir}\\{config.RomsDir}",
+                            InGlobalUpdate = true,
+                            ExcludeOnlineFiles = false,
+                            UseSimplifiedOnlineFileScan = false,
+                            ImportWithRelativePaths = true,
+                            ScanSubfolders = true,
+                            ScanInsideArchives = true,
+                            OverridePlatformId = platformId,
+                            EmulatorProfileId = emulator.CustomProfiles[0].Id,
+                            PlayActionSettings = ScannerConfigPlayActionSettings.ScannerSettings,
+                            MergeRelatedFiles = true,
+                        });
+                    }
+                    
                 API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck configuration successfully loaded", NotificationType.Info);
             } catch (Exception e){
                 API.Instance.Dialogs.ShowErrorMessage($"There was an error when attempting to configure your emulators: {e.Message}", "EmuDeck Error");
