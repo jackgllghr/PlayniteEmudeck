@@ -3,7 +3,7 @@ Packages:
   - Version: 0.4
     RequiredApiVersion: 6.9.0
     ReleaseDate: 2023-10-29
-    PackageUrl: https://github.com/jackgllghr/PlayniteEmudeck/releases/download/0.3/EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151_0_4.pext
+    PackageUrl: https://github.com/jackgllghr/PlayniteEmudeck/releases/download/0.4/EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151_0_4.pext
     Changelog:
       - Fix for latest Emudeck update
       - Fix for null pointer exception (Thanks xoredg!)
