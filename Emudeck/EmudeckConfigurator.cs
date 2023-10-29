@@ -82,7 +82,9 @@ namespace EmudeckPlaynite
 
                 savedPlatforms.ForEach(s =>
                 {
-                    platforms.Add(s.SpecificationId, new Guid(s.Id.ToString()));
+                    if (s.SpecificationId != null) {
+                        platforms.Add(s.SpecificationId, new Guid(s.Id.ToString()));
+                    }
                 });
 
 
