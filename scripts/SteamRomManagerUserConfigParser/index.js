@@ -44,7 +44,7 @@ try {
             var name = i.configTitle;
             var platformSlug = i.romDirectory.substring(17);
 
-            // let regex = new RegExp('(\/k start \/min "Emu" "C:\\Windows\\System32\\cmd.exe" \/K ""C:\\Emulation\\tools\\launchers\\retroarch.bat" "-L" "\${os:win\|cores\|\${os:mac\|\${racores}\|\${os:linux\|\${racores}}}}\${\/})(\w+\.)')
+            // let regex = new RegExp('(\/k start \/min "Emu" "C:\\Windows\\System32\\cmd.exe" \/K ""C:\\Emulation\\tools\\launchers\\retroarch.ps1" "-L" "\${os:win\|cores\|\${os:mac\|\${racores}\|\${os:linux\|\${racores}}}}\${\/})(\w+\.)')
             let regex = /(\$\{\/\})(\w+\.)/g
             const coreTemp = i.executableArgs.match(regex)[0].substring(4);
             const core = coreTemp.substring(0, coreTemp.length -1);
@@ -64,7 +64,7 @@ try {
                     arguments: "-L " + core + ".dll",
                     fileExtensions: exts,
                     playniteEmulatorName: "RetroArch",
-                    executable: "tools\\launchers\\retroarch.bat",
+                    executable: "tools\\launchers\\retroarch.ps1",
                     platformSpecificiationId: platformSpec.slug
                 });
             }

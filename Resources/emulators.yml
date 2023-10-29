@@ -3,67 +3,67 @@ emulators:
       romsDir: roms\psx
       arguments: -fullscreen
       playniteEmulatorName: DuckStation
-      executable: tools\launchers\duckstation.bat
+      executable: tools\launchers\duckstation.ps1
       platformSpecificiationId: sony_playstation
     - name: ps2
       romsDir: roms\ps2
       arguments: 
       playniteEmulatorName: PCSX2
-      executable: tools\launchers\pcsx2.bat
+      executable: tools\launchers\pcsx2.ps1
       platformSpecificiationId: sony_playstation2
     - name: ps3
       romsDir: roms\ps3
       arguments: --no-gui
       playniteEmulatorName: RPCS3
-      executable: tools\launchers\rpcs3.bat
+      executable: tools\launchers\rpcs3.ps1
       platformSpecificiationId: sony_playstation3
     - name: psp
       romsDir: roms\psp
       arguments:  -f -g
       playniteEmulatorName: PPSSPP
-      executable: tools\launchers\PPSSPP.bat
+      executable: tools\launchers\PPSSPP.ps1
       platformSpecificiationId: sony_psp
     - name: gc
       romsDir: roms\gc
       arguments: -b -e
       playniteEmulatorName: Dolphin
-      executable: tools\launchers\dolphin.bat
+      executable: tools\launchers\dolphin.ps1
       platformSpecificiationId: nintendo_gamecube
     - name: wii
       romsDir: roms\wii
       arguments: -b -e
       playniteEmulatorName: Dolphin
-      executable: tools\launchers\dolphin.bat
+      executable: tools\launchers\dolphin.ps1
       platformSpecificiationId: nintendo_wii
     - name: wiiu
       romsDir: roms\wiiu
       arguments: -f -g
       playniteEmulatorName: Cemu
-      executable: tools\launchers\cemu.bat
+      executable: tools\launchers\cemu.ps1
       platformSpecificiationId: nintendo_wiiu
     - name: switch yuzu
       romsDir: roms\switch
       arguments: -f -g
       playniteEmulatorName: yuzu
-      executable: tools\launchers\yuzu.bat
+      executable: tools\launchers\yuzu.ps1
       platformSpecificiationId: nintendo_switch
     - name: switch ryujinx
       romsDir: roms\switch
       arguments: -f
       playniteEmulatorName: Ryujinx
-      executable: tools\launchers\ryujinx.bat
+      executable: tools\launchers\ryujinx.ps1
       platformSpecificiationId: nintendo_switch
     - name: nds
       romsDir: roms\nds
       arguments: -f
       playniteEmulatorName: melonDS
-      executable: tools\launchers\melonDS.bat
+      executable: tools\launchers\melonDS.ps1
       platformSpecificiationId: nintendo_ds
     - name: n3ds
       romsDir: roms\n3ds
       arguments: 
       playniteEmulatorName: Citra
-      executable: tools\launchers\citra.bat
+      executable: tools\launchers\citra.ps1
       platformSpecificiationId: nintendo_3ds
       # Retro arch configs, use script to create
     - name: 3DO
@@ -79,7 +79,7 @@ emulators:
         - cue
         - cue
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: 3do
     - name: Amiga - Retroarch
       romsDir: roms\amiga
@@ -126,7 +126,7 @@ emulators:
         - 7z
         - 7Z
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: commodore_amiga
     - name: Amiga 600 - Retroarch
       romsDir: roms\amiga600
@@ -173,7 +173,7 @@ emulators:
         - 7z
         - 7Z
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: atari_2600
     - name: Amiga 1200 - Retroarch
       romsDir: roms\amiga1200
@@ -220,7 +220,7 @@ emulators:
         - 7z
         - 7Z
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: atari_5200
     - name: Amiga CD - Retroarch
       romsDir: roms\amigacd32
@@ -267,7 +267,7 @@ emulators:
         - 7z
         - 7Z
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: commodore_amiga_cd32
     - name: Atari 2600 - Retroarch - Stella
       romsDir: roms\atari2600
@@ -282,7 +282,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: atari_2600
     - name: Atari Lynx - Retroarch - Beetle Handy
       romsDir: roms\atarilynx
@@ -295,7 +295,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: atari_lynx
     - name: Bandai WonderSwan/Color - Retroarch - Beetle Cygne
       romsDir: roms\wonderswan
@@ -312,7 +312,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: bandai_wonderswan
     - name: Commodore 64 - Retroarch
       romsDir: roms\c64
@@ -371,7 +371,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: commodore_64
     - name: DOS - Retroarch - DOSBox Pure
       romsDir: roms\dos
@@ -382,7 +382,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: pc_dos
     - name: Nintendo 64 - Retroarch - Mupen64Plus Next
       romsDir: roms\n64
@@ -405,7 +405,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_64
     - name: Nintendo GameBoy - Retroarch - Gambatte
       romsDir: roms\gb
@@ -420,7 +420,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_gameboy
     - name: Nintendo GameBoy Color - Retroarch - Gambatte
       romsDir: roms\gbc
@@ -435,7 +435,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_gameboycolor
     - name: Nintendo GameBoy Advance - Retroarch - mGBA
       romsDir: roms\gba
@@ -448,7 +448,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_gameboyadvance
     - name: Nintendo NES - Retroarch - Mesen
       romsDir: roms\nes
@@ -467,7 +467,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_nes
     - name: Nintendo DS - Retroarch - melonDS
       romsDir: roms\nds
@@ -480,7 +480,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_ds
     - name: Nintendo SNES - Retroarch - Snes9x
       romsDir: roms\snes
@@ -501,7 +501,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nintendo_super_nes
     - name: Sega 32X - Retroarch - PicoDrive
       romsDir: roms\sega32x
@@ -516,7 +516,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_32x
     - name: Sega CD/Mega CD - Retroarch - Genesis Plus GX
       romsDir: roms\segacd
@@ -533,7 +533,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_cd
     - name: Sega Dreamcast - Retroarch - Flycast
       romsDir: roms\dreamcast
@@ -552,7 +552,7 @@ emulators:
         - m3u
         - M3U
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_dreamcast
     - name: Sega Game Gear - Retroarch - Genesis Plus GX
       romsDir: roms\gamegear
@@ -565,7 +565,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_gamegear
     - name: Sega Master System - Retroarch - Genesis Plus GX
       romsDir: roms\mastersystem
@@ -578,7 +578,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_mastersystem
     - name: Sega Saturn - Retroarch - Yabause
       romsDir: roms\saturn
@@ -596,7 +596,7 @@ emulators:
         - m3u
         - M3U
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_saturn
     - name: Sega Saturn - RA - Beetle
       romsDir: roms\saturn
@@ -614,7 +614,7 @@ emulators:
         - m3u
         - M3U
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_saturn
     - name: SNK Neo Geo Pocket/Color - Retroarch - Beetle NeoPop
       romsDir: roms\ngpc
@@ -629,7 +629,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: snk_neogeopocket
     - name: Sony PlayStation - Retroarch - Beetle PSX HW
       romsDir: roms\psx
@@ -648,7 +648,7 @@ emulators:
         - toc
         - TOC
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sony_playstation
     - name: Sony PlayStation - Retroarch - SwanStation
       romsDir: roms\psx
@@ -667,7 +667,7 @@ emulators:
         - toc
         - TOC
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sony_playstation
     - name: Sony PlayStation Portable - Retroarch - PPSSPP
       romsDir: roms\psp
@@ -686,7 +686,7 @@ emulators:
         - prx
         - PRX
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sony_psp
     - name: PC Engine/TurboGrafx 16 - RA - Beetle PCE
       romsDir: roms\pcengine
@@ -701,7 +701,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: pc_dos
     - name: PCE/TurboGrafx 16 CD - RA - Beetle PCE
       romsDir: roms\pcenginecd
@@ -720,7 +720,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: pc_dos
     - name: ZX Spectrum - Retroarch - Fuse
       romsDir: roms\zxspectrum
@@ -742,7 +742,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sinclair_zxspectrum
     - name: Amstrad CPC - RA - Caprice32
       romsDir: roms\amstradcpc
@@ -763,7 +763,7 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: amstrad_cpc
     - name: Commodore Vic-20 - RetroArch
       romsDir: roms\vic20
@@ -847,7 +847,7 @@ emulators:
         - ROM
         - ""
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: commodore_vci20
     - name: NEC - PC-98 - RetroArch
       romsDir: roms\vic20
@@ -890,7 +890,7 @@ emulators:
         - HDD
         - HDN
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: nec_pcfx
     - name: Commodore 16 - Retroarch
       romsDir: roms\c16
@@ -949,5 +949,5 @@ emulators:
         - zip
         - ZIP
       playniteEmulatorName: RetroArch
-      executable: tools\launchers\retroarch.bat
+      executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: commodore_64

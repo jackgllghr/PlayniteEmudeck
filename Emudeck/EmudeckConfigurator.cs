@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System;
 using EmudeckPlaynite.Model;
@@ -107,8 +107,8 @@ namespace EmudeckPlaynite
                         CustomProfiles = new ObservableCollection<CustomEmulatorProfile>{
                                     new CustomEmulatorProfile{
                                         Platforms = new List<Guid>{platformId},
-                                        Arguments= $"{config.Arguments}" + " \"{ImagePath}\"",
-                                        Executable = $"{this.EmudeckInstallDir}\\{config.Executable}",
+                                        Arguments= $"\"{this.EmudeckInstallDir}\\{config.Executable} '{config.Arguments}'" + " '{ImagePath}'\"",
+                                        Executable = $"powershell",
                                         TrackingMode =  0,
                                         ImageExtensions = config.FileExtensions != null ? config.FileExtensions : defaultProfile.ImageExtensions,
                                         Name = "Default",
