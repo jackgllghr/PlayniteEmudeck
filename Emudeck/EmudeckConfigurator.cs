@@ -100,6 +100,9 @@ namespace EmudeckPlaynite
 
 
                     var defaultProfile = emulatorDefaultProfiles[config.PlayniteEmulatorName];
+
+                    var transformedArguments = config.Arguments != null && config.Arguments != "" ? String.Join(" ", config.Arguments.Split(' ').Select(s => $"'{s}'")) : "";
+
                     // Insert emulator 
                     var emulator = new Emulator
                     {
@@ -109,7 +112,7 @@ namespace EmudeckPlaynite
                         CustomProfiles = new ObservableCollection<CustomEmulatorProfile>{
                                     new CustomEmulatorProfile{
                                         Platforms = new List<Guid>{platformId},
-                                        Arguments= $"\"{this.EmudeckInstallDir}\\{config.Executable} '{config.Arguments}'" + " '{ImagePath}'\"",
+                                        Arguments= $"\"{this.EmudeckInstallDir}\\{config.Executable} {transformedArguments} " + " '{ImagePath}'\"",
                                         Executable = $"powershell",
                                         TrackingMode =  0,
                                         ImageExtensions = config.FileExtensions != null ? config.FileExtensions : defaultProfile.ImageExtensions,

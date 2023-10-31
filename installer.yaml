@@ -1,5 +1,11 @@
 AddonId: "EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151"
 Packages:
+  - Version: 0.5
+    RequiredApiVersion: 6.9.0
+    ReleaseDate: 2023-10-31
+    PackageUrl: https://github.com/jackgllghr/PlayniteEmudeck/releases/download/0.5/EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151_0_5.pext
+    Changelog:
+      - Fix for passing multiple arguments to Emudeck scripts
   - Version: 0.4
     RequiredApiVersion: 6.9.0
     ReleaseDate: 2023-10-29
