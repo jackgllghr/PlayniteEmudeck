@@ -5,7 +5,10 @@ A plugin for Playnite to automatically configure Playnite to use Emudeck via Pla
 ## Usage
 Install from Playnite Add-on Browser or by visiting [this link](https://playnite.link/addons.html#EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151).
 
-Open `Add-ons > Extension Settings > Generic > Emudeck` and point the Add-on to your Emudeck installation directory. You should receive a notification notifying that your Emulator configuration was updated. 
+On first boot, you will be prompted to set your Emudeck installation path, select the folder and all will be configured for you.
+
+### Manual
+Open `Add-ons > Extension Settings > Generic > Emudeck` and point the Add-on to your Emudeck installation directory. You will receive a notification notifying that your Emulator configuration was updated. 
 
 Then, simply hit `Update Game Library > Update Emulated Folders > Update All` and Playnite will begin scanning the Emudeck ROMs folders for your ROMs. 
 
