@@ -38,5 +38,5 @@ The plan for this add-on is simply to match the functionality provided by Steam 
 - [x] Support for Retroarch emulators
 - [ ] Support for PS3 (RPCS3)
 - [ ] Ability to switch on/off which emulators to configure, same as SRM
-- [ ] Automatic update of Playnite configuration on Add-on update
+- [x] Automatic update of emulator configuration on Add-on update
 - [ ] Improved controller support out-of-the-box
