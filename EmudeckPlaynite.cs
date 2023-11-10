@@ -15,6 +15,7 @@ namespace EmudeckPlaynite
     {
         private static readonly ILogger logger = LogManager.GetLogger();
 
+        private static readonly string currentVersion = "0.6";
         private EmudeckPlayniteSettingsViewModel settings { get; set; }
         private EmudeckConfigurator configurator { get; set; }
 
@@ -53,13 +54,17 @@ namespace EmudeckPlaynite
             settings.Settings.PropertyChanged += Reset;
         }
 
-        public void Reset(object sender, PropertyChangedEventArgs args){
+        public void Reset(){
             configurator = new EmudeckConfigurator(
                 settings.Settings.EmudeckInstallDir, 
                 GetConfiguration()
             );
             configurator.RemoveAllEmulators();
             configurator.AddEmulators();
+            API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck emulator configurations have been updated.", NotificationType.Info);
+        }
+        public void Reset(object sender, PropertyChangedEventArgs args){
+            Reset();
         }
 
         public override void OnGameInstalled(OnGameInstalledEventArgs args)
@@ -89,7 +94,27 @@ namespace EmudeckPlaynite
 
         public override void OnApplicationStarted(OnApplicationStartedEventArgs args)
         {
-            // Add code to be executed when Playnite is initialized.
+            // Check if configured
+            if(settings.Settings.EmudeckInstallDir == "")
+            {
+                API.Instance.Dialogs.ShowMessage("Emudeck Plugin has not been configured yet. Please select the path to your Emudeck installation:", "Emudeck Setup", System.Windows.MessageBoxButton.OK);
+                string folder = API.Instance.Dialogs.SelectFolder();
+                if(folder != "")
+                {
+                    settings.Settings.EmudeckInstallDir = folder;
+                    settings.Settings.PluginPreviouslyInstalledVersion = currentVersion;
+                    settings.EndEdit();
+                    API.Instance.Dialogs.ShowMessage("You're all set to start using Emudeck through Playnite! \n\nIf your games aren't appearing in your library, simply select \n\nUpdate Game Library > Update Emulated Folders > Update All\n\nAll your emulator and auto-scan configurations can be viewed and edited in \nLibrary > Configure Emulators...", "Emudeck Setup", System.Windows.MessageBoxButton.OK);
+                
+                }
+                
+            }
+            // Check if running older configuration and update automatically if so
+            else if(settings.Settings.PluginPreviouslyInstalledVersion != currentVersion) 
+            {  
+                settings.Settings.PluginPreviouslyInstalledVersion = currentVersion;
+                settings.EndEdit();
+            }
         }
 
         public override void OnApplicationStopped(OnApplicationStoppedEventArgs args)

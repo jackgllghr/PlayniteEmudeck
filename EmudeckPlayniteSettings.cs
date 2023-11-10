@@ -6,7 +6,10 @@ namespace EmudeckPlaynite
 {
     public class EmudeckPlayniteSettings : ObservableObject
     {
-        private string emudeckInstallDir = "D:\\Emulation";
+        private string pluginPreviouslyInstalledVersion = "";
+        public string PluginPreviouslyInstalledVersion { get => pluginPreviouslyInstalledVersion; set => SetValue(ref pluginPreviouslyInstalledVersion, value); }
+    
+        private string emudeckInstallDir = "";
         public string EmudeckInstallDir { get => emudeckInstallDir; set => SetValue(ref emudeckInstallDir, value); }
     }
 

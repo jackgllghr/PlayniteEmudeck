@@ -144,8 +144,6 @@ namespace EmudeckPlaynite
                             MergeRelatedFiles = true,
                         });
                     }
-                    
-                API.Instance.Notifications.Add(id: "Emudeck" + Guid.NewGuid(), text: "Emudeck configuration successfully loaded", NotificationType.Info);
             } catch (Exception e){
                 API.Instance.Dialogs.ShowErrorMessage($"There was an error when attempting to configure your emulators: {e.Message}", "EmuDeck Error");
             }

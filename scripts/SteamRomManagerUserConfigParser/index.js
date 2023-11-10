@@ -9,7 +9,7 @@ const Fuse = require('fuse.js');
  * @returns 
  */
 function getPlatformSpec(name, platforms){ 
-    const ignoreList = ["Sharp X68000", "DooM"];
+    const ignoreList = ["Sharp X68000", "DooM", "Commodore Vic-20", "Amstrad CPC" ];
     if(ignoreList.indexOf(name) > -1){
         return null;
     }
