@@ -1,5 +1,11 @@
 AddonId: "EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151"
 Packages:
+  - Version: 0.7
+    RequiredApiVersion: 6.9.0
+    ReleaseDate: 2024-01-24
+    PackageUrl: https://github.com/jackgllghr/PlayniteEmudeck/releases/download/0.7/EmudeckPlaynite_82cf60ec-8091-488d-9c85-63836ebee151_0_7.pext
+    Changelog:
+      - Added Megadrive/Genesis
   - Version: 0.6
     RequiredApiVersion: 6.9.0
     ReleaseDate: 2023-11-10

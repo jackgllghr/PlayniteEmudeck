@@ -15,7 +15,7 @@ namespace EmudeckPlaynite
     {
         private static readonly ILogger logger = LogManager.GetLogger();
 
-        private static readonly string currentVersion = "0.6";
+        private static readonly string currentVersion = "0.7";
         private EmudeckPlayniteSettingsViewModel settings { get; set; }
         private EmudeckConfigurator configurator { get; set; }
 
