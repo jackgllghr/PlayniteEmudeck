@@ -21,26 +21,6 @@ namespace EmudeckPlaynite
 
         public override Guid Id { get; } = Guid.Parse("82cf60ec-8091-488d-9c85-63836ebee151");
 
-        private Configuration GetConfiguration() {
-            var configPath =  Path.Combine(GetExtensionInstallPath(), "Resources", "emulators.yml");
-
-            try{
-                var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
-                .WithNamingConvention(new CamelCaseNamingConvention())
-                .Build();
-                var file = File.ReadAllText(configPath);
-                return deserializer.Deserialize<Configuration>(file);            
-
-            } catch(Exception e){
-                PlayniteApi.Dialogs.ShowErrorMessage("Unable to read configuration file: " + configPath + "\n" + e.Message, "Emudeck");
-                return new Configuration();
-            }
-            
-        }
-
-        private string GetExtensionInstallPath(){
-            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        }
 
         public EmudeckPlaynite(IPlayniteAPI api) : base(api)
         {
@@ -57,7 +37,7 @@ namespace EmudeckPlaynite
         public void Reset(){
             configurator = new EmudeckConfigurator(
                 settings.Settings.EmudeckInstallDir, 
-                GetConfiguration()
+                EmulatorConfigurationDefinitionService.GetConfiguration()
             );
             configurator.RemoveAllEmulators();
             configurator.AddEmulators();

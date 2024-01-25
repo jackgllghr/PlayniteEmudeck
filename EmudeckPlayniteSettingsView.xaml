@@ -1,18 +1,82 @@
 <UserControl x:Class="EmudeckPlaynite.EmudeckPlayniteSettingsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             d:DesignHeight="400" d:DesignWidth="600">
-    <StackPanel Margin="20">
-        <TextBlock Text="Emudeck Install Directory:"/>
-        <StackPanel Orientation="Horizontal" >
-            <TextBox Text="{Binding Settings.EmudeckInstallDir}" Width="400" Margin="0 0 10 0"/>
-            <Button Command="{Binding BrowseCommand}" Content="{DynamicResource EmudeckPlaynite_Settings_BrowseLabel}" />
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    d:DesignHeight="800" d:DesignWidth="600">
+    <ScrollViewer>
+
+        <StackPanel Margin="20">
+            <TextBlock
+                Text="{DynamicResource EmudeckPlaynite_Settings_Label_SelectInstallDirectory}"
+                Margin="0 0 0 10" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding Settings.EmudeckInstallDir}" Width="400" Margin="0 0 10 0" />
+                <Button Command="{Binding BrowseCommand}"
+                    Content="{DynamicResource EmudeckPlaynite_Settings_BrowseLabel}" />
+            </StackPanel>
+            <StackPanel Margin="0 10 0 0">
+                <Button Command="{Binding ReloadCommand}"
+                    Content="{DynamicResource EmudeckPlaynite_Settings_ReloadLabel}" />
+            </StackPanel>
+            <StackPanel Margin="0 10 0 0">
+                <TextBlock Text="{DynamicResource EmudeckPlaynite_Settings_Label_EnabledEmulators}" />
+                <TextBlock Text="{Binding Settings.EnabledEmulatorsCount}" />
+
+                <!-- <ItemsControl ItemsSource="{Binding Settings.EnabledEmulators}"
+                Margin="20,15,25,25">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                        <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" Width="Auto" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl> -->
+                <!-- <ListBox ItemsSource="{Binding Settings.EnabledEmulators}" Height="300" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                         <CheckBox Content="{Binding Path=Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox> -->
+                <!-- <ListView ItemsSource="{Binding Settings.EnabledEmulators}" Height="300"> -->
+                <!-- <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate> -->
+
+                <!-- <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="Auto">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View> -->
+                <!-- </ListView> -->
+                <ListBox Name="IconImageTypes" ItemsSource="{Binding Settings.EnabledEmulators}"
+                    d:ItemsSource="{d:SampleData ItemCount=25}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel ToolTip="Drag me!" Orientation="Horizontal">
+                                <TextBlock Text="░" Padding="10,0" />
+                                <CheckBox IsChecked="{Binding IsChecked}" Content="{Binding Name}"
+                                    Width="Auto" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </StackPanel>
-        <StackPanel>
-            <Button Command="{Binding ReloadCommand}" Content="{DynamicResource EmudeckPlaynite_Settings_ReloadLabel}" />
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>

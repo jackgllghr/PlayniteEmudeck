@@ -1,6 +1,10 @@
 ﻿using Playnite.SDK;
 using Playnite.SDK.Data;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows;
 
 namespace EmudeckPlaynite
 {
@@ -8,9 +12,51 @@ namespace EmudeckPlaynite
     {
         private string pluginPreviouslyInstalledVersion = "";
         public string PluginPreviouslyInstalledVersion { get => pluginPreviouslyInstalledVersion; set => SetValue(ref pluginPreviouslyInstalledVersion, value); }
-    
+
         private string emudeckInstallDir = "";
         public string EmudeckInstallDir { get => emudeckInstallDir; set => SetValue(ref emudeckInstallDir, value); }
+
+        private List<string> disabledEmulators = new List<string>();
+        public List<string> DisabledEmulators { get => disabledEmulators; set => SetValue(ref disabledEmulators, value); }
+
+
+         public ObservableCollection<CheckboxListItem> EnabledEmulators = new ObservableCollection<CheckboxListItem>();
+
+        public int EnabledEmulatorsCount
+        {
+            get => EnabledEmulators.Count;
+        }
+    }
+
+    public class CheckboxListItem
+    {
+        private string name;
+        private bool isChecked;
+
+        public bool IsChecked
+        {
+            get => isChecked;
+            set
+            {
+                isChecked = value;
+                // OnPropertyChanged();
+            }
+        }
+        public string Name
+        {
+            get => name;
+            set
+            {
+                name = value;
+                // OnPropertyChanged();
+            }
+        }
+
+        public override string ToString()
+        {
+            var symbol = IsChecked ? "✔" : "❌";
+            return $"{symbol} {Name}";
+        }
     }
 
     public class EmudeckPlayniteSettingsViewModel : ObservableObject, ISettings
@@ -29,10 +75,17 @@ namespace EmudeckPlaynite
             }
         }
 
+       
+
+
         public EmudeckPlayniteSettingsViewModel(EmudeckPlaynite plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
             this.plugin = plugin;
+
+            // EnabledEmulators = new ObservableCollection<CheckboxListItem>();
+            // EnabledEmulators.Clear();
+
 
             // Load saved settings.
             var savedSettings = plugin.LoadPluginSettings<EmudeckPlayniteSettings>();
@@ -41,6 +94,10 @@ namespace EmudeckPlaynite
             if (savedSettings != null)
             {
                 Settings = savedSettings;
+
+              
+                // API.Instance.Dialogs.ShowErrorMessage($"Emualtors checked: {emulators.FindAll(e => e.IsChecked).Count}", "EmuDeck Count");
+
             }
             else
             {
@@ -48,6 +105,24 @@ namespace EmudeckPlaynite
             }
 
             
+            EmulatorConfigurationDefinitionService.GetConfiguration().emulators.ForEach(emu =>
+            {
+                Settings.EnabledEmulators.Add(new CheckboxListItem
+                {
+                    IsChecked = true,
+                    Name = emu.Name
+                });
+            });
+              Settings.EnabledEmulators.ForEach(e =>
+                {
+                    if (savedSettings.DisabledEmulators.Find(i => i == e.Name) != null)
+                    {
+                        e.IsChecked = false;
+                    }
+                });
+
+
+
         }
 
         public RelayCommand<object> BrowseCommand
@@ -66,7 +141,7 @@ namespace EmudeckPlaynite
             });
         }
 
-       
+
         public void BeginEdit()
         {
             // Code executed when settings view is opened and user starts editing values.

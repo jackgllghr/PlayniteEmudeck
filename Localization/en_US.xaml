@@ -1,6 +1,12 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+     <sys:String x:Key="EmudeckPlaynite_Settings_Label_SelectInstallDirectory">Emudeck Install Directory:</sys:String>
      <sys:String x:Key="EmudeckPlaynite_Settings_BrowseLabel">Browse</sys:String>
+     
      <sys:String x:Key="EmudeckPlaynite_Settings_ReloadLabel">Reload Configuration</sys:String>
+     <sys:String x:Key="EmudeckPlaynite_Settings_Label_EnabledEmulators">Enable/Disable Emulators:</sys:String>
+     
+     <sys:String x:Key="EmudeckPlaynite_Settings_ErrorTitleConfiguring">EmuDeck Error</sys:String>
+     <sys:String x:Key="EmudeckPlaynite_Settings_ErrorMessageConfiguring">There was an error when attempting to configure your emulators: {e.Message}</sys:String>
 </ResourceDictionary>
