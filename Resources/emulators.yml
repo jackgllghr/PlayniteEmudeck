@@ -567,6 +567,25 @@ emulators:
       playniteEmulatorName: RetroArch
       executable: tools\launchers\retroarch.ps1
       platformSpecificiationId: sega_gamegear
+    - name: Sega Genesis/Mega Drive - Retroarch - Genesis Plus GX
+      romsDir: roms\genesis
+      arguments: -L genesis_plus_gx_libretro.dll
+      fileExtensions:
+        - 7z
+        - 7Z
+        - bin
+        - BIN
+        - gen
+        - GEN
+        - md
+        - MD
+        - smd
+        - SMD
+        - zip
+        - ZIP
+      playniteEmulatorName: RetroArch
+      executable: tools\launchers\retroarch.ps1
+      platformSpecificiationId: sega_genesis
     - name: Sega Master System - Retroarch - Genesis Plus GX
       romsDir: roms\mastersystem
       arguments: -L genesis_plus_gx_libretro.dll

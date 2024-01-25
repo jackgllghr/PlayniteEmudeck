@@ -97,7 +97,7 @@ platforms:
   - slug: sega_gamegear
     name: Sega Game Gear
   - slug: sega_genesis
-    name: Sega Genesis
+    name: Sega Genesis/Mega Drive
   - slug: sega_mastersystem
     name: Sega Master System
   - slug: sega_saturn
